@@ -1,0 +1,49 @@
+### Environment files
+.env
+.env.*
+!.env.example
+
+### Java / Maven build output
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+### Maven wrapper binary cache
+.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### VS Code
+.vscode/
+
+### Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+### NetBeans
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### OS files
+.DS_Store
+Thumbs.db
+
+### Docker runtime artifacts
+docker-data/
