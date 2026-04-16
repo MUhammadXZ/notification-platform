@@ -1,7 +1,14 @@
 ### Environment files
 .env
-.env.*
+.env.local
+.env.production
 !.env.example
+
+### Spring Boot
+*.orig
+application-secret.yml
+application-prod.yml
+logs/
 
 ### Java / Maven build output
 target/
