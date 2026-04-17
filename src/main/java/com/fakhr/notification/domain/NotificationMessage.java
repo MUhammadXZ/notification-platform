@@ -25,6 +25,9 @@ public record NotificationMessage(
         // Delivery attempt number starting at 1.
         int attemptNumber
 ) {
+    private static final int INITIAL_ATTEMPT_NUMBER = 1;
+
+    // Factory method centralizes generated id, timestamp, and initial attempt number.
     public static NotificationMessage create(
             String clientId,
             NotificationChannel channel,
@@ -44,7 +47,7 @@ public record NotificationMessage(
                 body,
                 idempotencyKey,
                 Instant.now(),
-                1
+                                INITIAL_ATTEMPT_NUMBER
         );
     }
 }
