@@ -1,9 +1,8 @@
 spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
   application:
     name: notification-platform
-
-  profiles:
-    default: ${SPRING_PROFILES_ACTIVE}
 
   datasource:
     url: jdbc:postgresql://${DATASOURCE_HOST}:${DATASOURCE_PORT}/${POSTGRES_DB}

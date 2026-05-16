@@ -2,17 +2,34 @@ spring:
   config:
     activate:
       on-profile: local
-
-  # Local-only bootstrap note: docker-compose sets KAFKA_AUTO_CREATE_TOPICS_ENABLE=false.
-  # We must add a KafkaTopicConfig bean to create all 6 required topics on startup.
-
+  datasource:
+    url: jdbc:postgresql://localhost:5433/notification_platform
+    username: notification_user
+    password: xc1Ndcolk1
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 5
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: notification_redis_dev_password
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-platform-local
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: false
-
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 management:
   endpoints:
     web:
       exposure:
         include: health,info,prometheus
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
