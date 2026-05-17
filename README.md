@@ -13,7 +13,7 @@ rate limiting, and circuit breakers across email, SMS, and push.
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TD
     Client -->|POST /notifications| API
     API -->|atomic write| DB[(PostgreSQL\nOutbox + Log)]
     DB -->|every 5s| Publisher
